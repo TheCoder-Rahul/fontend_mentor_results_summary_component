@@ -25,33 +25,27 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![Design screenshot](https://github.com/TheCoder-Rahul/fontend_mentor_results_summary_component/blob/main/project_screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- 👉 [Solution URL](https://github.com/TheCoder-Rahul/fontend_mentor_results_summary_component.git)
+- 👉 [Live Site URL](https://thecoder-rahul.github.io/fontend_mentor_results_summary_component/)
 
 ## My process
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- 👉 **Markup:** Semantic HTML5 for better accessibility and SEO.
+- 👉 **Styling:** CSS3 with Custom Properties (variables) for a maintainable color scheme, font-properties, and different sizes.
+- 👉 **Layout:** CSS Grid (Grid Template Areas) for the main layout and Flexbox for internal component alignment.
+- 👉 **Workflow:** Mobile-first approach and Responsive Design using Media Queries.
 
 ### What I learned
 
 Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
 
-To see how you can add code snippets, see below:
+Check my code snippets below:
 
 ```html
 <h1>Some HTML code I'm proud of</h1>
@@ -69,6 +63,6 @@ const proudOfThisFunc = () => {
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- 👉 GitHub - [TheCoder-Rahul](https://github.com/TheCoder-Rahul)
+- 👉 Frontend Mentor - [@TheCoder-Rahul](https://www.frontendmentor.io/profile/TheCoder-Rahul)
+- 👉 LinkedIn - [@Rahul Kumar](https://www.linkedin.com/in/rahul-the-developer/)
