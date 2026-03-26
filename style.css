@@ -54,5 +54,11 @@ body {
   background-color: var(--pale-blue);
   font-family: var(--font-family), sans-serif;
 }
+.summary {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: var(--white);
+}
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: var(--dark-gray-blue); }
