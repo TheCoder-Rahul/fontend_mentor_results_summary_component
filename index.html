@@ -12,40 +12,42 @@
 <body>
   <main>
     <article class="summary">
-      <section class="summary__result">
-        <h3 class="summary__result-title">Your Result</h3>
-        <h1 class="summary__result-score"><span>76</span> of 100</h1>
-        <h2 class="summary__result-feedback">Great</h2>
-        <p class="summary__result-comparison">You scored higher than 65% of the people who have taken these tests.</p>
+      <section class="summary_result">
+        <h3 class="summary_result-title">Your Result</h3>
+        <h1 class="summary_result-score"><span>76</span> of 100</h1>
+        <h2 class="summary_result-feedback">Great</h2>
+        <p class="summary_result-comparison">You scored higher than 65% of the people who have taken these tests.</p>
       </section>
-      <section class="summary__details">
-        <h3 class="summary__details-title">Summary</h3>
-        <ul class="summary__details-list">
-          <li class="summary__details-item summary__details-item--reaction">
-            <p class="summary__details-item-title">Reaction</p>
-            <p class="summary__details-item-score"><span>80</span> / 100</p>
-          </li>
-          <li class="summary__details-item summary__details-item--memory">
-            <p class="summary__details-item-title">Memory</p>
-            <p class="summary__details-item-score"><span>92</span> / 100</p>
-          </li>
-          <li class="summary__details-item summary__details-item--verbal">
-            <p class="summary__details-item-title">Verbal</p>
-            <p class="summary__details-item-score"><span>61</span> / 100</p>
-          </li>
-          <li class="summary__details-item summary__details-item--visual">
-            <p class="summary__details-item-title">Visual</p>
-            <p class="summary__details-item-score"><span>72</span> / 100</p>
-          </li>
-        </ul>
+      <section class="summary_details">
+        <h3 class="summary_details-title">Summary</h3>
+        <ul id="summaryDetailsList"></ul>
         <button type="button" class="btn" id="continue">Continue</button>
       </section>
     </article>
   </main>
   
   <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener noreferrer">Frontend Mentor</a>. 
+    Coded by <a href="https://www.frontendmentor.io/profile/TheCoder-Rahul" target="_blank" rel="noopener noreferrer">Rahul Kumar</a>.
   </footer>
+
+  <script type="text/javascript">
+    const userResultElement = document.getElementById('summaryDetailsList');
+    
+    fetch('./data.json')
+      .then(response => response.json())
+      .then(data => {
+        data.forEach(item => {
+          userResultElement.insertAdjacentHTML('beforeend', `
+            <li class="summary_details-item">
+              <img src="${item.icon}" alt="${item.category} icon" class="summary_details-icon">
+              <span class="summary_details-category">${item.category}</span>
+              <span class="summary_details-score"><strong>${item.score}</strong> / 100</span>
+            </li>
+          `);
+        });
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  </script>
 </body>
 </html>
