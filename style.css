@@ -22,9 +22,11 @@
 :root {
   --fw-bold: 700;
   --fw-medium: 500;
-  --fs-heading: 32px;
+  --fs-title: 1.5rem;
+  --fs-heading: 2rem;
   --fw-extra-bold: 800;
-  --fs-paragraph: 18px;
+  --fs-paragraph: 1.125rem;
+  --fs-sub-heading: 1.75rem;
   --white: hsl(0, 0%, 100%);
   --font-family: HankenGrotesk;
   --light-red: hsl(0, 100%, 67%);
