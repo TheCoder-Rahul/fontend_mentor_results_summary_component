@@ -45,11 +45,10 @@
   box-sizing: border-box;
 }
 body {
-  display: flex;
+  line-height: 1.5;
   min-height: 100vh;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-paragraph);
   background-color: var(--pale-blue);
   font-family: var(--font-family), sans-serif;
 }
