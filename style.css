@@ -56,7 +56,7 @@ body {
 }
 .summary {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   flex-direction: column;
   background-color: var(--white);
 }

@@ -37,7 +37,7 @@
       .then(data => {
         data.forEach(item => {
           userResultElement.insertAdjacentHTML('beforeend', `
-            <li class="summary_details-item">
+            <li class="summary_details_${item.category}">
               <img src="${item.icon}" alt="${item.category} icon" class="summary_details-icon">
               <span class="summary_details-category">${item.category}</span>
               <span class="summary_details-score"><strong>${item.score}</strong> / 100</span>
