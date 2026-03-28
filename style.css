@@ -28,21 +28,21 @@
   --fs-body: 1.125rem;
   --fs-heading: 1.375rem;
   --fs-sub-heading: 1.25rem;
-  --white: hsl(0, 0%, 100%);
+  --white: 0, 0%, 100%;
+  --light-red: 0, 100%, 67%;
   --font-family: HankenGrotesk;
-  --light-red: hsl(0, 100%, 67%);
-  --pale-blue: hsl(221, 100%, 96%);
-  --green-teal: hsl(166, 100%, 37%);
-  --cobalt-blue: hsl(234, 85%, 45%);
-  --light-lavender: hsl(241, 100%, 89%);
-  --dark-gray-blue: hsl(224, 30%, 27%);
-  --orangey-yellow: hsl(39, 100%, 56%);
-  --light-slate-blue: hsl(252, 100%, 67%);
-  --light-royal-blue: hsl(241, 81%, 54%);
-  --violet-blue: hsla(256, 72%, 46%, 1);
-  --persian-blue: hsla(241, 72%, 46%, 0);
-  --primary-gradient: linear-gradient(to bottom, var(--light-slate-blue), var(--light-royal-blue));
-  --secondary-gradient: linear-gradient(to bottom, var(--violet-blue), var(--persian-blue));
+  --pale-blue: 221, 100%, 96%;
+  --green-teal: 166, 100%, 37%;
+  --cobalt-blue: 234, 85%, 45%;
+  --light-lavender: 241, 100%, 89%;
+  --dark-gray-blue: 224, 30%, 27%;
+  --orange-yellow: 39, 100%, 56%;
+  --light-slate-blue: 252, 100%, 67%;
+  --light-royal-blue: 241, 81%, 54%;
+  --violet-blue: 256, 72%, 46%, 1;
+  --persian-blue: 241, 72%, 46%, 0;
+  --primary-gradient: linear-gradient(to bottom, hsl(var(--light-slate-blue)), hsl(var(--light-royal-blue)));
+  --secondary-gradient: linear-gradient(to bottom, hsl(var(--violet-blue)), hsl(var(--persian-blue)));
 }
 * {
   margin: 0;
@@ -52,14 +52,14 @@
 body {
   min-height: 100vh;
   font-size: var(--fs-body);
-  background-color: var(--pale-blue);
+  background-color: hsl(var(--pale-blue));
   font-family: var(--font-family), sans-serif;
 }
 .summary {
   display: flex;
   height: 100vh;
   flex-direction: column;
-  background-color: var(--white);
+  background-color: hsl(var(--white));
 }
 .summary_result {
   gap: 1rem;
@@ -67,9 +67,9 @@ body {
   display: flex;
   text-align: center;
   align-items: center;
-  color: var(--white);
   flex-direction: column;
   justify-content: center;
+  color: hsl(var(--white));
   border-radius: 0 0 2rem 2rem;
   background: var(--primary-gradient);
 }
@@ -88,11 +88,11 @@ body {
 .summary_result-score span {
   opacity: 0.5;
   font-size: var(--fs-body);
-  color: var(--light-lavender);
+  color: hsl(var(--light-lavender));
   font-weight: var(--fw-normal);
 }
 .summary_result-title {
-  color: var(--light-lavender);
+  color: hsl(var(--light-lavender));
   font-weight: var(--fw-medium);
   font-size: var(--fs-sub-heading);
 }
@@ -101,7 +101,65 @@ body {
   font-size: var(--fs-heading);
 }
 .summary_result-comparison {
-  color: var(--light-lavender);
+  color: hsl(var(--light-lavender));
+}
+.summary_details {
+  flex-grow: 1;
+  gap: 1.5rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.summary_details .summary_details-title {
+  font-size: var(--fs-sub-heading);
+  color: hsl(var(--dark-gray-blue));
+}
+#summaryDetailsList {
+  list-style: none;
+}
+#summaryDetailsList li {
+  gap: 1rem;
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  background-color: hsl(var(--pale-blue));
+}
+#summaryDetailsList li:last-child {
+  margin-bottom: 0;
+}
+#summaryDetailsList li .summary_details-score {
+  color: hsl(var(--dark-gray-blue));
+  margin-left: auto;
+}
+#summaryDetailsList li .summary_details-score span {
+  opacity: 0.5;
+}
+#summaryDetailsList li.summary_details_Reaction {
+  color: hsl(var(--light-red));
+  background-color: hsla(var(--light-red), 0.05);
+}
+#summaryDetailsList li.summary_details_Memory {
+  color: hsl(var(--green-teal));
+  background-color: hsla(var(--green-teal), 0.05);
+}
+#summaryDetailsList li.summary_details_Verbal {
+  color: hsl(var(--orange-yellow));
+  background-color: hsla(var(--orange-yellow), 0.05);
+}
+#summaryDetailsList li.summary_details_Visual {
+  color: hsl(var(--cobalt-blue));
+  background-color: hsla(var(--cobalt-blue), 0.05);
+}
+.summary_details .btn {
+  border: none;
+  padding: 1rem;
+  border-radius: 2rem;
+  color: hsl(var(--white));
+  font-size: var(--fs-body);
+  font-weight: var(--fw-bold);
+  background-color: hsl(var(--dark-gray-blue));
 }
 .attribution { font-size: 11px; text-align: center; }
-.attribution a { color: var(--dark-gray-blue); }
+.attribution a { color: hsl(var(--dark-gray-blue)); }
