@@ -43,22 +43,247 @@ Users should be able to:
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+In this challenge I learned how to handle data from a JSON file and include it in our HTML output.
 
 Check my code snippets below:
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+<main class="summary">
+  <article class="summary_result">
+    <h2 class="summary_result-title">Your Result</h2>
+    <h1 class="summary_result-score">76 <span>of 100</span></h1>
+    <h3 class="summary_result-feedback">Great</h3>
+    <p class="summary_result-comparison">You scored higher than 65% of the people who have taken these tests.</p>
+  </article>
+  <article class="summary_details">
+    <h3 class="summary_details-title">Summary</h3>
+    <ul id="summaryDetailsList"></ul>
+    <button type="button" class="btn" id="continue">Continue</button>
+  </article>
+</main>
 ```
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+@font-face {
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  font-family: HankenGrotesk;
+  src: url(assets/fonts/static/HankenGrotesk-Medium.ttf) format('truetype');
+}
+@font-face {
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  font-family: HankenGrotesk;
+  src: url(assets/fonts/static/HankenGrotesk-Bold.ttf) format('truetype');
+}
+@font-face {
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  font-family: HankenGrotesk;
+  src: url(assets/fonts/static/HankenGrotesk-ExtraBold.ttf) format('truetype');
+}
+:root {
+  --fw-bold: 700;
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-extra-bold: 800;
+  --fs-title: 3.5rem;
+  --fs-body: 1.125rem;
+  --fs-heading: 1.375rem;
+  --fs-sub-heading: 1.25rem;
+  --white: 0, 0%, 100%;
+  --light-red: 0, 100%, 67%;
+  --font-family: HankenGrotesk;
+  --pale-blue: 221, 100%, 96%;
+  --green-teal: 166, 100%, 37%;
+  --cobalt-blue: 234, 85%, 45%;
+  --light-lavender: 241, 100%, 89%;
+  --dark-gray-blue: 224, 30%, 27%;
+  --orange-yellow: 39, 100%, 56%;
+  --light-slate-blue: 252, 100%, 67%;
+  --light-royal-blue: 241, 81%, 54%;
+  --violet-blue: 256, 72%, 46%, 1;
+  --persian-blue: 241, 72%, 46%, 0;
+  --primary-gradient: linear-gradient(to bottom, hsl(var(--light-slate-blue)), hsl(var(--light-royal-blue)));
+  --secondary-gradient: linear-gradient(to bottom, hsl(var(--violet-blue)), hsl(var(--persian-blue)));
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  font-size: var(--fs-body);
+  background-color: hsl(var(--pale-blue));
+  font-family: var(--font-family), sans-serif;
+}
+.summary {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  background-color: hsl(var(--white));
+}
+.summary_result {
+  gap: 1rem;
+  padding: 2rem;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  color: hsl(var(--white));
+  border-radius: 0 0 2rem 2rem;
+  background: var(--primary-gradient);
+}
+.summary_result-score {
+  display: flex;
+  width: 9.375rem;
+  height: 9.375rem;
+  border-radius: 50%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-size: var(--fs-title);
+  font-weight: var(--fw-extra-bold);
+  background: var(--secondary-gradient);
+}
+.summary_result-score span {
+  opacity: 0.5;
+  font-size: var(--fs-body);
+  color: hsl(var(--light-lavender));
+  font-weight: var(--fw-normal);
+}
+.summary_result-title {
+  color: hsl(var(--light-lavender));
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-sub-heading);
+}
+.summary_result-feedback {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-heading);
+}
+.summary_result-comparison {
+  color: hsl(var(--light-lavender));
+}
+.summary_details {
+  flex-grow: 1;
+  gap: 1.5rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.summary_details .summary_details-title {
+  font-size: var(--fs-sub-heading);
+  color: hsl(var(--dark-gray-blue));
+}
+#summaryDetailsList {
+  list-style: none;
+}
+#summaryDetailsList li {
+  gap: 1rem;
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  background-color: hsl(var(--pale-blue));
+}
+#summaryDetailsList li:last-child {
+  margin-bottom: 0;
+}
+#summaryDetailsList li .summary_details-score {
+  color: hsl(var(--dark-gray-blue));
+  margin-left: auto;
+}
+#summaryDetailsList li .summary_details-score span {
+  opacity: 0.5;
+}
+#summaryDetailsList li.summary_details_Reaction {
+  color: hsl(var(--light-red));
+  background-color: hsla(var(--light-red), 0.05);
+}
+#summaryDetailsList li.summary_details_Memory {
+  color: hsl(var(--green-teal));
+  background-color: hsla(var(--green-teal), 0.05);
+}
+#summaryDetailsList li.summary_details_Verbal {
+  color: hsl(var(--orange-yellow));
+  background-color: hsla(var(--orange-yellow), 0.05);
+}
+#summaryDetailsList li.summary_details_Visual {
+  color: hsl(var(--cobalt-blue));
+  background-color: hsla(var(--cobalt-blue), 0.05);
+}
+.summary_details .btn {
+  border: none;
+  padding: 1rem;
+  border-radius: 2rem;
+  color: hsl(var(--white));
+  font-size: var(--fs-body);
+  font-weight: var(--fw-bold);
+  background-color: hsl(var(--dark-gray-blue));
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.summary_details .btn:hover, .summary_details .btn:focus, .summary_details .btn:active {
+  cursor: pointer;
+  background: var(--primary-gradient);
+}
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(var(--dark-gray-blue)); }
+
+@media (min-width: 768px) {
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .summary {
+    height: auto;
+    max-width: 40rem;
+    flex-direction: row;
+    border-radius: 2rem;
+    box-shadow: 0.5rem 0.5rem 1rem hsla(var(--light-lavender), 0.25);
+  }
+  .summary_result {
+    flex: 1 1 50%;
+    border-radius: 2rem;
+  }
+  .summary_result-score {
+    margin: 2rem 0;
+  }
+  .summary_details {
+    flex: 1 1 50%;
+  }
+  .attribution {
+    inset: auto 0 0;
+    position: absolute;
+  }
 }
 ```
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+const userResultElement = document.getElementById('summaryDetailsList');
+
+fetch('./data.json')
+.then(response => response.json())
+.then(data => {
+  data.forEach(item => {
+    userResultElement.insertAdjacentHTML('beforeend', `
+      <li class="summary_details_${item.category}">
+        <img src="${item.icon}" alt="${item.category} icon" class="summary_details-icon">
+        <span class="summary_details-category">${item.category}</span>
+        <strong class="summary_details-score">${item.score} <span>/ 100</span></strong>
+      </li>
+    `);
+  });
+})
+.catch(error => console.error('Error fetching data:', error));
 ```
 
 ## Author
