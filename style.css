@@ -21,12 +21,13 @@
 }
 :root {
   --fw-bold: 700;
+  --fw-normal: 400;
   --fw-medium: 500;
-  --fs-title: 1.5rem;
-  --fs-heading: 2rem;
   --fw-extra-bold: 800;
-  --fs-paragraph: 1.125rem;
-  --fs-sub-heading: 1.75rem;
+  --fs-title: 3.5rem;
+  --fs-body: 1.125rem;
+  --fs-heading: 1.375rem;
+  --fs-sub-heading: 1.25rem;
   --white: hsl(0, 0%, 100%);
   --font-family: HankenGrotesk;
   --light-red: hsl(0, 100%, 67%);
@@ -40,6 +41,8 @@
   --light-royal-blue: hsl(241, 81%, 54%);
   --violet-blue: hsla(256, 72%, 46%, 1);
   --persian-blue: hsla(241, 72%, 46%, 0);
+  --primary-gradient: linear-gradient(to bottom, var(--light-slate-blue), var(--light-royal-blue));
+  --secondary-gradient: linear-gradient(to bottom, var(--violet-blue), var(--persian-blue));
 }
 * {
   margin: 0;
@@ -47,10 +50,8 @@
   box-sizing: border-box;
 }
 body {
-  line-height: 1.5;
   min-height: 100vh;
-  font-weight: var(--fw-medium);
-  font-size: var(--fs-paragraph);
+  font-size: var(--fs-body);
   background-color: var(--pale-blue);
   font-family: var(--font-family), sans-serif;
 }
@@ -59,6 +60,48 @@ body {
   height: 100vh;
   flex-direction: column;
   background-color: var(--white);
+}
+.summary_result {
+  gap: 1rem;
+  padding: 2rem;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  color: var(--white);
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 0 0 2rem 2rem;
+  background: var(--primary-gradient);
+}
+.summary_result-score {
+  display: flex;
+  width: 9.375rem;
+  height: 9.375rem;
+  border-radius: 50%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-size: var(--fs-title);
+  font-weight: var(--fw-extra-bold);
+  background: var(--secondary-gradient);
+}
+.summary_result-score span {
+  opacity: 0.5;
+  font-size: var(--fs-body);
+  color: var(--light-lavender);
+  font-weight: var(--fw-normal);
+}
+.summary_result-title {
+  color: var(--light-lavender);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-sub-heading);
+}
+.summary_result-feedback {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-heading);
+}
+.summary_result-comparison {
+  color: var(--light-lavender);
 }
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: var(--dark-gray-blue); }
